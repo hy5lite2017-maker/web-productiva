@@ -20,7 +20,7 @@
 
     <nav class="navbar">
         <ul class="nav-menu">
-            <li><a href="#">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">Servicios ▾</a>
                 <ul class="dropdown-content">
@@ -39,24 +39,27 @@
         <div class="carousel-track">
             <div class="carousel-slide">
                 <img src="imagenes/images (3).jpg" alt="Proyecto Alpha" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                <div class="slide-content" style="position:relative;z-index:2;">
+                <div class="slide-content">
                     <h2>Proyecto Alpha</h2>
                     <p>Innovación y tecnología</p>
                 </div>
             </div>
-            <div class="carousel-slide" style="background: linear-gradient(135deg, #2d1b00, #4a2c00, #663f00);">
+            <div class="carousel-slide">
+                <img src="imagenes/images (5).jpg" alt="Proyecto Beta" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
                 <div class="slide-content">
                     <h2>Proyecto Beta</h2>
                     <p>Diseño futurista</p>
                 </div>
             </div>
-            <div class="carousel-slide" style="background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #2a2a2a);">
+            <div class="carousel-slide">
+                <img src="imagenes/images (1).jpg" alt="Proyecto Gamma" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
                 <div class="slide-content">
                     <h2>Proyecto Gamma</h2>
                     <p>Desarrollo web avanzado</p>
                 </div>
             </div>
-            <div class="carousel-slide" style="background: linear-gradient(135deg, #1c0a00, #331500, #4d2000);">
+            <div class="carousel-slide">
+                <img src="imagenes/images (2).jpg" alt="Proyecto Delta" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
                 <div class="slide-content">
                     <h2>Proyecto Delta</h2>
                     <p>Soluciones inteligentes</p>
@@ -75,7 +78,40 @@
     <div class="linea linea5"></div>
     <div class="linea linea6"></div>
 
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="index.html">Inicio</a>
+            <a href="portafolio.html">Portafolio</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="footer-copy">© 2026 Futurista</div>
+        <div class="footer-social">
+            <a href="#" title="YouTube">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 0 0-2.1 2.1A31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-5.8 31 31 0 0 0-.5-5.8z" fill="currentColor"/><path d="M9.5 15.5V8.5l6.2 3.5z" fill="#000"/></svg>
+            </a>
+            <a href="#" title="Instagram">
+                <svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+            </a>
+            <a href="#" title="WhatsApp">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M17.5 14.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1c-.2.3-.8.9-1 .9s-.4.1-.7-.2c-.3-.2-1.2-.5-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9s0-.5.1-.6.2-.2.3-.4.1-.2.1-.3 0-.2-.1-.4c-.1-.1-.7-1.6-.9-2.2s-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.2.7.3 1.2.4 1.6.5.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.2.2-1.4-.1-.1-.3-.2-.6-.3z" fill="currentColor"/><path d="M12 1C5.9 1 1 5.9 1 12c0 2.1.6 4.1 1.7 5.8L1 23l5.4-1.6c1.7.9 3.5 1.4 5.6 1.4 6.1 0 11-4.9 11-11S18.1 1 12 1zm0 20c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.2 1 .9-3.1-.2-.4C3.2 15.5 2.6 13.8 2.6 12c0-5.2 4.2-9.4 9.4-9.4s9.4 4.2 9.4 9.4-4.2 9.4-9.4 9.4z" fill="currentColor"/></svg>
+            </a>
+        </div>
+    </footer>
+
     <script>
+        window.addEventListener('scroll', () => {
+            const s = window.scrollY;
+            document.querySelectorAll('.linea').forEach((el, i) => {
+                const speed = 0.1 + (i * 0.07);
+                el.style.transform = el.getAttribute('data-base') + ` translateY(${s * speed}px)`;
+            });
+        });
+
+        document.querySelectorAll('.linea').forEach(el => {
+            const style = window.getComputedStyle(el);
+            el.setAttribute('data-base', style.transform);
+        });
+
         const track = document.querySelector('.carousel-track');
         const slides = document.querySelectorAll('.carousel-slide');
         const prevBtn = document.querySelector('.prev');

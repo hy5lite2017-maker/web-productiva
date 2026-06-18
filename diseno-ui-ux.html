@@ -8,7 +8,9 @@
 </head>
 <body>
 
-    <div class="profile-box">
+        <div class="fondo-glow"></div>
+
+
         <button class="profile-btn">👤</button>
     </div>
 
@@ -66,7 +68,23 @@
             </a>
         </div></footer>
 </body>
+    <script>
+        window.addEventListener('scroll', () => {
+            const s = window.scrollY;
+            document.querySelectorAll('.linea').forEach((el, i) => {
+                const speed = 0.1 + (i * 0.07);
+                el.style.transform = el.getAttribute('data-base') +  translateY(px);
+            });
+        });
+
+        document.querySelectorAll('.linea').forEach(el => {
+            const style = window.getComputedStyle(el);
+            el.setAttribute('data-base', style.transform);
+        });
+    </script>
+
 </html>
+
 
 
 
