@@ -10,6 +10,8 @@ body{
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     background:
         radial-gradient(ellipse at 20% 50%, rgba(255, 140, 0, 0.12) 0%, transparent 50%),
@@ -902,6 +904,7 @@ body::after {
 .site-footer {
     position: relative;
     width: 100%;
+    margin-top: auto;
     background: rgba(10, 10, 10, 0.85);
     border-top: 1px solid #1a1a1a;
     padding: 16px 40px;
@@ -1030,7 +1033,8 @@ body::after {
 
     .register-btn-box {
         top: 6px;
-        right: 10px;
+        right: auto;
+        left: 46px;
     }
 
     .register-nav-btn {
@@ -1202,7 +1206,7 @@ body::after {
     .profile-box { top: 4px; left: 6px; }
     .profile-btn { width: 26px; height: 26px; }
 
-    .register-btn-box { top: 4px; right: 6px; }
+    .register-btn-box { top: 4px; right: auto; left: 38px; }
     .register-nav-btn { font-size: 10px; padding: 4px 10px; }
 
     .service-icon { width: 60px; height: 60px; }
