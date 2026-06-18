@@ -15,12 +15,13 @@
             <div class="loader-text">Cargando<span class="loader-dots"></span></div>
         </div>
         <div class="fondo-glow"></div>
+        <div class="bubbles" id="bubbles"></div>
 
 
     <div class="profile-box">
-        <button class="profile-btn">
+        <a href="perfil.html" class="profile-btn">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        </button>
+        </a>
     </div>
 
     <div class="register-btn-box">
@@ -49,13 +50,16 @@
             </li>
             <li><a href="portafolio.html">Portafolio</a></li>
             <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="perfil.html">Perfil</a></li>
         </ul>
     </nav>
 
     <div class="service-page">
-        <div class="service-icon">🚀</div>
-        <h1>Portafolio</h1>
-        <p>Proyectos que marcan la diferencia. Innovación, calidad y excelencia en cada línea de código.</p>
+        <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <h1>Portafolio</h1>
+            <p>Proyectos que marcan la diferencia. Innovación, calidad y excelencia en cada línea de código.</p>
+        </div>
     </div>
     <div class="linea linea1"></div>
     <div class="linea linea2"></div>
@@ -71,6 +75,7 @@
             <a href="index.html">Inicio</a>
             <a href="portafolio.html">Portafolio</a>
             <a href="contacto.html">Contacto</a>
+            <a href="perfil.html">Perfil</a>
         </div>
         <div class="footer-copy">� 2026 Futurista</div>
                 <div class="footer-social">
@@ -120,6 +125,26 @@
             const style = window.getComputedStyle(el);
             el.setAttribute('data-base', style.transform);
         });
+    </script>
+
+    <script>
+        (function() {
+            const container = document.getElementById('bubbles');
+            if (!container) return;
+            const colors = ['rgba(173,216,230,0.2)', 'rgba(127,255,212,0.15)', 'rgba(200,200,210,0.12)'];
+            for (let i = 0; i < 18; i++) {
+                const el = document.createElement('div');
+                el.className = 'bubble';
+                const size = 15 + Math.random() * 60;
+                el.style.width = size + 'px';
+                el.style.height = size + 'px';
+                el.style.left = Math.random() * 100 + '%';
+                el.style.background = colors[Math.floor(Math.random() * colors.length)];
+                el.style.animationDuration = (10 + Math.random() * 15) + 's';
+                el.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(el);
+            }
+        })();
     </script>
 
 </html>
