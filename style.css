@@ -476,6 +476,67 @@ body{
     left: -30%;
 }
 
+/* Service pages */
+.service-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    z-index: 10;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.service-icon {
+    font-size: 72px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.4));
+}
+
+.service-page h1 {
+    color: #ff8c00;
+    font-size: 38px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+    text-shadow:
+        0 0 10px rgba(255, 140, 0, 0.6),
+        0 0 30px rgba(255, 140, 0, 0.3);
+}
+
+.service-page p {
+    color: #999;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .service-page {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 100px auto 20px;
+        padding: 0 16px;
+    }
+
+    .service-icon {
+        font-size: 48px;
+    }
+
+    .service-page h1 {
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+
+    .service-page p {
+        font-size: 15px;
+    }
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
     body {
