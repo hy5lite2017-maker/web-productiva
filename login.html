@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Futurista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="profile-box">
+        <button class="profile-btn">👤</button>
+    </div>
+
+    <div class="register-btn-box">
+        <a href="registro.html" class="register-nav-btn">Registro</a>
+    </div>
+
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Servicios ▾</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Desarrollo Web</a></li>
+                    <li><a href="#">Diseño UI/UX</a></li>
+                    <li><a href="#">Consultoría</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Portafolio</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="register-box">
+        <h2>Iniciar Sesión</h2>
+        <form>
+            <div class="input-group">
+                <input type="email" id="email" placeholder=" " required>
+                <label for="email">Correo electrónico</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder=" " required>
+                <label for="password">Contraseña</label>
+                <span class="toggle-pw" onclick="togglePass('password', this)">
+                    <svg viewBox="0 0 24 24" id="eye-icon">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </span>
+            </div>
+            <button type="submit" class="register-btn">Entrar</button>
+            <p class="auth-link"><a href="#">¿Olvidaste tu contraseña?</a></p>
+            <p class="auth-link">¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+        </form>
+    </div>
+
+    <div class="linea linea1"></div>
+    <div class="linea linea2"></div>
+    <div class="linea linea3"></div>
+
+    <script>
+        function togglePass(id, el) {
+            const input = document.getElementById(id);
+            const svg = el.querySelector('svg');
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            svg.innerHTML = isPassword
+                ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/>'
+                : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+        }
+
+        document.querySelectorAll('.input-group input').forEach(input => {
+            input.addEventListener('input', () => {
+                input.parentElement.classList.toggle('filled', input.value.trim() !== '');
+            });
+        });
+    </script>
+
+</body>
+</html>

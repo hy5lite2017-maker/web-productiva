@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fondo Futurista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="profile-box">
+        <button class="profile-btn">👤</button>
+    </div>
+
+    <div class="register-btn-box">
+        <a href="registro.html" class="register-nav-btn">Registro</a>
+    </div>
+
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="#">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Servicios ▾</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Desarrollo Web</a></li>
+                    <li><a href="#">Diseño UI/UX</a></li>
+                    <li><a href="#">Consultoría</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Portafolio</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="carousel">
+        <div class="carousel-track">
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);">
+                <div class="slide-content">
+                    <h2>Proyecto Alpha</h2>
+                    <p>Innovación y tecnología</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #2d1b00, #4a2c00, #663f00);">
+                <div class="slide-content">
+                    <h2>Proyecto Beta</h2>
+                    <p>Diseño futurista</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #2a2a2a);">
+                <div class="slide-content">
+                    <h2>Proyecto Gamma</h2>
+                    <p>Desarrollo web avanzado</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #1c0a00, #331500, #4d2000);">
+                <div class="slide-content">
+                    <h2>Proyecto Delta</h2>
+                    <p>Soluciones inteligentes</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn prev">‹</button>
+        <button class="carousel-btn next">›</button>
+        <div class="carousel-dots"></div>
+    </div>
+
+    <div class="linea linea1"></div>
+    <div class="linea linea2"></div>
+    <div class="linea linea3"></div>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        let index = 0;
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        });
+        const dots = document.querySelectorAll('.dot');
+
+        function update() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        function goTo(i) {
+            index = i;
+            update();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            index = index === 0 ? slides.length - 1 : index - 1;
+            update();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            index = index === slides.length - 1 ? 0 : index + 1;
+            update();
+        });
+
+        setInterval(() => {
+            index = index === slides.length - 1 ? 0 : index + 1;
+            update();
+        }, 4000);
+
+        update();
+    </script>
+
+</body>
+</html>

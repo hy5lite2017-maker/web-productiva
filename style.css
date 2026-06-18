@@ -1,0 +1,477 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top right,
+        #2a2a2a 0%,
+        #171717 30%,
+        #0d0d0d 70%,
+        #000000 100%);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0a0a0a;
+    border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    z-index: 100;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 0;
+    margin: 0;
+}
+
+.nav-menu > li {
+    position: relative;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #999;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    padding: 18px 28px;
+    display: block;
+    transition: color 0.3s, text-shadow 0.3s, background 0.3s;
+    border-right: 1px solid #1a1a1a;
+}
+
+.nav-menu a:hover {
+    color: #ff8c00;
+    background: #111;
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #0d0d0d;
+    min-width: 200px;
+    list-style: none;
+    padding: 0;
+    border: 1px solid #2a2a2a;
+    border-top: 2px solid #ff8c00;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 14px;
+    color: #888;
+    border-right: none;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.dropdown-content li a:hover {
+    background: #141414;
+    color: #ff8c00;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Profile button */
+.profile-box {
+    position: fixed;
+    top: 8px;
+    left: 20px;
+    z-index: 200;
+    border: 2px solid #ff8c00;
+    border-radius: 8px;
+    padding: 3px;
+    box-shadow:
+        0 0 8px #ff8c00,
+        0 0 20px rgba(255, 140, 0, 0.4);
+}
+
+.profile-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 2px solid #ff8c00;
+    background: #000;
+    color: #ff8c00;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+    box-shadow:
+        0 0 8px #ff8c00,
+        0 0 20px rgba(255, 140, 0, 0.4);
+}
+
+.profile-btn:hover {
+    transform: scale(1.05);
+    box-shadow:
+        inset 0 0 6px rgba(0, 0, 0, 0.3),
+        0 0 20px #ff8c00,
+        0 0 40px rgba(255, 140, 0, 0.6);
+}
+
+/* Register nav button */
+.register-btn-box {
+    position: fixed;
+    top: 8px;
+    right: 20px;
+    z-index: 200;
+    border: 2px solid #ff8c00;
+    border-radius: 8px;
+    padding: 3px;
+    box-shadow:
+        0 0 8px #ff8c00,
+        0 0 20px rgba(255, 140, 0, 0.4);
+}
+
+.register-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    border-radius: 6px;
+    border: 2px solid #ff8c00;
+    background: #000;
+    color: #ff8c00;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: box-shadow 0.3s, transform 0.3s;
+    box-shadow:
+        0 0 8px #ff8c00,
+        0 0 20px rgba(255, 140, 0, 0.4);
+}
+
+.register-nav-btn:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 20px #ff8c00,
+        0 0 40px rgba(255, 140, 0, 0.6);
+}
+
+/* Register form */
+.register-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    max-width: 90vw;
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid #2a2a2a;
+    border-top: 2px solid #ff8c00;
+    border-radius: 10px;
+    padding: 24px 28px;
+    box-shadow:
+        0 0 30px rgba(255, 140, 0, 0.1),
+        0 0 60px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.register-box h2 {
+    color: #ff8c00;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 12px rgba(255, 140, 0, 0.4);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 12px;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    color: #ccc;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #ff8c00;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.2);
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #666;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 12px;
+    pointer-events: none;
+    transition: top 0.3s, font-size 0.3s, color 0.3s;
+    background: transparent;
+    padding: 0 3px;
+}
+
+.toggle-pw {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    z-index: 5;
+    background: none;
+    border: none;
+    padding: 2px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-pw svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: #ff8c00;
+    stroke-width: 1.8;
+    filter: drop-shadow(0 0 4px rgba(255, 140, 0, 0.6));
+    transition: filter 0.3s;
+}
+
+.toggle-pw:hover svg {
+    filter: drop-shadow(0 0 8px rgba(255, 140, 0, 0.9));
+}
+
+.input-group.filled label,
+.input-group input:focus + label {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #ff8c00;
+    border-radius: 6px;
+    color: #ff8c00;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.register-btn:hover {
+    background: rgba(255, 140, 0, 0.1);
+    box-shadow:
+        0 0 15px rgba(255, 140, 0, 0.3),
+        inset 0 0 15px rgba(255, 140, 0, 0.05);
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 12px;
+    color: #666;
+}
+
+.auth-link a {
+    color: #ff8c00;
+    text-decoration: none;
+    transition: text-shadow 0.3s;
+}
+
+.auth-link a:hover {
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+/* Carousel */
+.carousel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    max-width: 90vw;
+    overflow: hidden;
+    border: 2px solid rgba(255, 140, 0, 0.3);
+    border-radius: 12px;
+    box-shadow:
+        0 0 20px rgba(255, 140, 0, 0.15),
+        0 0 40px rgba(255, 140, 0, 0.1);
+    z-index: 10;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+}
+
+.slide-content {
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+    padding: 40px;
+}
+
+.slide-content h2 {
+    color: #ff8c00;
+    font-size: 42px;
+    font-weight: 300;
+    text-shadow:
+        0 0 10px rgba(255, 140, 0, 0.6),
+        0 0 30px rgba(255, 140, 0, 0.3);
+    margin-bottom: 12px;
+    letter-spacing: 4px;
+}
+
+.slide-content p {
+    color: #999;
+    font-size: 18px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    font-size: 32px;
+    padding: 8px 16px;
+    cursor: pointer;
+    z-index: 20;
+    transition: background 0.3s, box-shadow 0.3s;
+    border-radius: 6px;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 140, 0, 0.2);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+}
+
+.carousel-btn.prev {
+    left: 12px;
+}
+
+.carousel-btn.next {
+    right: 12px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 20;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 140, 0, 0.5);
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.dot.active {
+    background: #ff8c00;
+    box-shadow: 0 0 8px #ff8c00;
+}
+
+/* Estilo general de las líneas neón */
+.linea{
+    position: absolute;
+    width: 120%;
+    height: 5px;
+
+    background: #ff8c00;
+
+    box-shadow:
+        0 0 6px #ff8c00,
+        0 0 18px #ff8c00,
+        0 0 35px rgba(255, 140, 0, 0.6);
+
+    transform: rotate(-25deg);
+
+    animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    from {
+        box-shadow:
+            0 0 6px #ff8c00,
+            0 0 18px #ff8c00,
+            0 0 35px rgba(255, 140, 0, 0.6);
+    }
+    to {
+        box-shadow:
+            0 0 10px #ff8c00,
+            0 0 30px #ff8c00,
+            0 0 55px rgba(255, 140, 0, 0.8);
+    }
+}
+
+/* Línea superior */
+.linea1{
+    top: 15%;
+    left: -40%;
+}
+
+/* Línea central */
+.linea2{
+    top: 45%;
+    left: -35%;
+}
+
+/* Línea inferior */
+.linea3{
+    top: 75%;
+    left: -30%;
+}
