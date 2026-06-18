@@ -8,6 +8,12 @@
 </head>
 <body>
 
+        <div class="loader-overlay" id="loader">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+            </div>
+            <div class="loader-text">Cargando<span class="loader-dots"></span></div>
+        </div>
         <div class="fondo-glow"></div>
 
 
@@ -19,6 +25,11 @@
     </div>
 
     <nav class="navbar">
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
             <li class="dropdown">
@@ -38,7 +49,7 @@
     <div class="service-page">
         <div class="service-icon">📊</div>
         <h1>Consultoría</h1>
-        <p>Asesoramiento estratégico en tecnología digital. Te ayudamos a tomar las mejores decisiones para tu proyecto.</p>
+        <p>Estrategia digital que impulsa tu negocio. Decisiones inteligentes basadas en datos y experiencia.</p>
     </div>
     <div class="linea linea1"></div>
     <div class="linea linea2"></div>
@@ -55,7 +66,7 @@
             <a href="portafolio.html">Portafolio</a>
             <a href="contacto.html">Contacto</a>
         </div>
-        <div class="footer-copy">� 2026 Futurista</div>
+        <div class="footer-copy">� 2026 Futurista</div>
                 <div class="footer-social">
             <a href="#" title="YouTube">
                 <svg viewBox="0 0 24 24" width="20" height="20"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 0 0-2.1 2.1A31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-5.8 31 31 0 0 0-.5-5.8z" fill="currentColor"/><path d="M9.5 15.5V8.5l6.2 3.5z" fill="#000"/></svg>
@@ -80,6 +91,30 @@
         document.querySelectorAll('.linea').forEach(el => {
             const style = window.getComputedStyle(el);
             el.setAttribute('data-base', style.transform);
+        });
+    </script>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-menu').classList.toggle('nav-menu-open');
+        }
+
+        document.querySelectorAll('.dropbtn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dd = btn.nextElementSibling;
+                    dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.classList.add('loader-hidden');
+                setTimeout(() => loader.remove(), 600);
+            }
         });
     </script>
 

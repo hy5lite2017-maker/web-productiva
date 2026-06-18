@@ -8,6 +8,13 @@
 </head>
 <body>
 
+    <div class="loader-overlay" id="loader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <div class="loader-text">Cargando<span class="loader-dots"></span></div>
+    </div>
+
     <div class="fondo-glow"></div>
 
     <div class="profile-box">
@@ -19,6 +26,11 @@
     </div>
 
     <nav class="navbar">
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
             <li class="dropdown">
@@ -154,6 +166,28 @@
         }, 4000);
 
         update();
+    </script>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-menu').classList.toggle('nav-menu-open');
+        }
+
+        document.querySelectorAll('.dropbtn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dd = btn.nextElementSibling;
+                    dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.classList.add('loader-hidden');
+            setTimeout(() => loader.remove(), 600);
+        });
     </script>
 
 </body>

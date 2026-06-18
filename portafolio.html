@@ -8,6 +8,12 @@
 </head>
 <body>
 
+        <div class="loader-overlay" id="loader">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+            </div>
+            <div class="loader-text">Cargando<span class="loader-dots"></span></div>
+        </div>
         <div class="fondo-glow"></div>
 
 
@@ -19,6 +25,11 @@
     </div>
 
     <nav class="navbar">
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
             <li class="dropdown">
@@ -38,7 +49,7 @@
     <div class="service-page">
         <div class="service-icon">🚀</div>
         <h1>Portafolio</h1>
-        <p>Explora nuestros proyectos más destacados. Cada trabajo refleja innovación, calidad y compromiso con la excelencia.</p>
+        <p>Proyectos que marcan la diferencia. Innovación, calidad y excelencia en cada línea de código.</p>
     </div>
     <div class="linea linea1"></div>
     <div class="linea linea2"></div>
@@ -55,7 +66,7 @@
             <a href="portafolio.html">Portafolio</a>
             <a href="contacto.html">Contacto</a>
         </div>
-        <div class="footer-copy">� 2026 Futurista</div>
+        <div class="footer-copy">� 2026 Futurista</div>
                 <div class="footer-social">
             <a href="#" title="YouTube">
                 <svg viewBox="0 0 24 24" width="20" height="20"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 0 0-2.1 2.1A31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-5.8 31 31 0 0 0-.5-5.8z" fill="currentColor"/><path d="M9.5 15.5V8.5l6.2 3.5z" fill="#000"/></svg>
@@ -69,11 +80,33 @@
         </div></footer>
 </body>
     <script>
+        function toggleMenu() {
+            document.querySelector('.nav-menu').classList.toggle('nav-menu-open');
+        }
+
+        document.querySelectorAll('.dropbtn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dd = btn.nextElementSibling;
+                    dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.classList.add('loader-hidden');
+                setTimeout(() => loader.remove(), 600);
+            }
+        });
+
         window.addEventListener('scroll', () => {
             const s = window.scrollY;
             document.querySelectorAll('.linea').forEach((el, i) => {
                 const speed = 0.1 + (i * 0.07);
-                el.style.transform = el.getAttribute('data-base') +  translateY(px);
+                el.style.transform = el.getAttribute('data-base') + ` translateY(${s * speed}px)`;
             });
         });
 
