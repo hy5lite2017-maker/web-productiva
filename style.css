@@ -475,3 +475,194 @@ body{
     top: 75%;
     left: -30%;
 }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .navbar {
+        padding: 0;
+        overflow-x: auto;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+        padding: 14px 16px;
+        white-space: nowrap;
+    }
+
+    .dropdown-content {
+        min-width: 160px;
+    }
+
+    .dropdown-content li a {
+        font-size: 12px;
+        padding: 10px 16px;
+    }
+
+    .profile-box {
+        top: 6px;
+        left: 10px;
+    }
+
+    .profile-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .register-btn-box {
+        top: 6px;
+        right: 10px;
+    }
+
+    .register-nav-btn {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .carousel {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 80px auto 20px;
+        width: 92vw;
+    }
+
+    .carousel-slide {
+        height: 220px;
+    }
+
+    .slide-content h2 {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .slide-content p {
+        font-size: 13px;
+        letter-spacing: 3px;
+    }
+
+    .slide-content {
+        padding: 20px;
+    }
+
+    .carousel-btn {
+        font-size: 22px;
+        padding: 4px 10px;
+    }
+
+    .carousel-btn.prev {
+        left: 6px;
+    }
+
+    .carousel-btn.next {
+        right: 6px;
+    }
+
+    .carousel-dots {
+        bottom: 30px;
+    }
+
+    .register-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 80px auto 20px;
+        width: 92vw;
+        padding: 20px;
+    }
+
+    .linea {
+        width: 200%;
+    }
+
+    .linea1 {
+        top: 10%;
+        left: -60%;
+    }
+
+    .linea2 {
+        top: 50%;
+        left: -50%;
+    }
+
+    .linea3 {
+        top: 80%;
+        left: -55%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu a {
+        font-size: 11px;
+        padding: 12px 10px;
+    }
+
+    .carousel-slide {
+        height: 180px;
+    }
+
+    .slide-content h2 {
+        font-size: 18px;
+    }
+
+    .slide-content p {
+        font-size: 11px;
+    }
+
+    .register-box {
+        padding: 16px;
+    }
+
+    .register-box h2 {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+
+    .input-group input {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .input-group label {
+        font-size: 11px;
+        left: 10px;
+    }
+
+    .register-btn {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .auth-link {
+        font-size: 11px;
+    }
+
+    .profile-box {
+        top: 4px;
+        left: 6px;
+    }
+
+    .profile-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+    }
+
+    .register-btn-box {
+        top: 4px;
+        right: 6px;
+    }
+
+    .register-nav-btn {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
