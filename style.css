@@ -680,6 +680,8 @@ body::after {
         overflow: auto;
         min-height: 100vh;
         height: auto;
+        display: flex;
+        flex-direction: column;
     }
 
     .hamburger {
@@ -817,6 +819,7 @@ body::after {
         gap: 10px;
         padding: 14px 20px;
         position: relative;
+        margin-top: auto;
     }
 
     .footer-links { gap: 16px; }
