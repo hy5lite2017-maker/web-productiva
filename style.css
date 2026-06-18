@@ -8,13 +8,53 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    position: relative;
 
     background:
+        radial-gradient(ellipse at 20% 50%, rgba(255, 140, 0, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 140, 0, 0.04) 0%, transparent 50%),
         radial-gradient(circle at top right,
-        #2a2a2a 0%,
-        #171717 30%,
-        #0d0d0d 70%,
+        #1a1a1a 0%,
+        #0d0d0d 40%,
         #000000 100%);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+        url('imagenes/fondo.jpg') center / cover no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        linear-gradient(rgba(255, 140, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 140, 0, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+.fondo-glow {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.08) 0%, transparent 50%);
+    animation: pulsoCentral 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulsoCentral {
+    from { opacity: 0.5; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1.05); }
 }
 
 /* Navbar */
@@ -428,52 +468,103 @@ body{
 /* Estilo general de las líneas neón */
 .linea{
     position: absolute;
-    width: 120%;
-    height: 5px;
-
     background: #ff8c00;
-
+    border-radius: 2px;
     box-shadow:
-        0 0 6px #ff8c00,
-        0 0 18px #ff8c00,
-        0 0 35px rgba(255, 140, 0, 0.6);
-
-    transform: rotate(-25deg);
-
-    animation: neonPulse 2s ease-in-out infinite alternate;
+        0 0 8px #ff8c00,
+        0 0 25px #ff8c00,
+        0 0 50px rgba(255, 140, 0, 0.7);
+    will-change: transform, opacity;
 }
 
-@keyframes neonPulse {
-    from {
-        box-shadow:
-            0 0 6px #ff8c00,
-            0 0 18px #ff8c00,
-            0 0 35px rgba(255, 140, 0, 0.6);
-    }
-    to {
-        box-shadow:
-            0 0 10px #ff8c00,
-            0 0 30px #ff8c00,
-            0 0 55px rgba(255, 140, 0, 0.8);
-    }
+@keyframes moverLinea1 {
+    0%   { transform: rotate(-20deg) translateX(-10%); opacity: 0.7; }
+    50%  { transform: rotate(-20deg) translateX(5%);  opacity: 1; }
+    100% { transform: rotate(-20deg) translateX(-10%); opacity: 0.7; }
 }
 
-/* Línea superior */
+@keyframes moverLinea2 {
+    0%   { transform: rotate(-30deg) translateX(-8%); opacity: 0.65; }
+    50%  { transform: rotate(-30deg) translateX(8%);  opacity: 1; }
+    100% { transform: rotate(-30deg) translateX(-8%); opacity: 0.65; }
+}
+
+@keyframes moverLinea3 {
+    0%   { transform: rotate(-15deg) translateX(-12%); opacity: 0.6; }
+    50%  { transform: rotate(-15deg) translateX(6%);   opacity: 1; }
+    100% { transform: rotate(-15deg) translateX(-12%); opacity: 0.6; }
+}
+
+@keyframes moverLinea4 {
+    0%   { transform: rotate(-40deg) translateX(-15%); opacity: 0.5; }
+    50%  { transform: rotate(-40deg) translateX(10%);  opacity: 0.9; }
+    100% { transform: rotate(-40deg) translateX(-15%); opacity: 0.5; }
+}
+
+@keyframes moverLinea5 {
+    0%   { transform: rotate(-10deg) translateX(-5%); opacity: 0.4; }
+    50%  { transform: rotate(-10deg) translateX(10%); opacity: 0.8; }
+    100% { transform: rotate(-10deg) translateX(-5%); opacity: 0.4; }
+}
+
+@keyframes moverLinea6 {
+    0%   { transform: rotate(-35deg) translateX(-20%); opacity: 0.3; }
+    50%  { transform: rotate(-35deg) translateX(15%);  opacity: 0.7; }
+    100% { transform: rotate(-35deg) translateX(-20%); opacity: 0.3; }
+}
+
+/* Línea 1 */
 .linea1{
-    top: 15%;
+    top: 10%;
     left: -40%;
+    width: 150%;
+    height: 6px;
+    animation: moverLinea1 6s ease-in-out infinite;
 }
 
-/* Línea central */
+/* Línea 2 */
 .linea2{
-    top: 45%;
+    top: 35%;
     left: -35%;
+    width: 140%;
+    height: 4px;
+    animation: moverLinea2 8s ease-in-out infinite 1s;
 }
 
-/* Línea inferior */
+/* Línea 3 */
 .linea3{
-    top: 75%;
+    top: 65%;
     left: -30%;
+    width: 160%;
+    height: 7px;
+    animation: moverLinea3 7s ease-in-out infinite 0.5s;
+}
+
+/* Línea 4 */
+.linea4{
+    top: 50%;
+    left: -20%;
+    width: 90%;
+    height: 3px;
+    animation: moverLinea4 9s ease-in-out infinite 2s;
+}
+
+/* Línea 5 */
+.linea5{
+    top: 22%;
+    left: -50%;
+    width: 110%;
+    height: 5px;
+    animation: moverLinea5 7.5s ease-in-out infinite 0.3s;
+}
+
+/* Línea 6 */
+.linea6{
+    top: 78%;
+    left: -45%;
+    width: 120%;
+    height: 3px;
+    animation: moverLinea6 10s ease-in-out infinite 1.5s;
 }
 
 /* Service pages */
