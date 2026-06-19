@@ -1252,20 +1252,18 @@ body::after {
     position: fixed;
     inset: 0;
     z-index: 10000;
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.85);
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    animation: overlayFade 2.8s ease forwards;
 }
 .intro-overlay .intro-logo svg {
     width: 220px;
     height: 275px;
     display: block;
-    animation: introAnim 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-.intro-overlay .intro-logo {
-    animation: introFade 1.6s ease forwards;
+    animation: introAnim 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 @keyframes introAnim {
     0% { transform: scale(2.5); opacity: 0; }
@@ -1273,8 +1271,8 @@ body::after {
     70% { transform: scale(0.5); opacity: 1; }
     100% { transform: scale(0.3); opacity: 0; }
 }
-@keyframes introFade {
-    0%, 60% { opacity: 1; }
+@keyframes overlayFade {
+    0%, 70% { opacity: 1; }
     100% { opacity: 0; }
 }
 
