@@ -8,6 +8,30 @@
 </head>
 <body>
 
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-logo">
+            <svg viewBox="0 0 200 250" fill="none">
+                <defs>
+                    <g id="fi">
+                        <line x1="0" y1="0" x2="0" y2="35" stroke="#ff8c00" stroke-width="5.5" stroke-linecap="round"/>
+                        <line x1="0" y1="0" x2="27" y2="0" stroke="#ff8c00" stroke-width="5.5" stroke-linecap="round"/>
+                        <line x1="0" y1="16" x2="21" y2="16" stroke="#ff8c00" stroke-width="5.5" stroke-linecap="round"/>
+                    </g>
+                </defs>
+                <path d="M100 16 L28 34 L28 112 Q28 178 100 226 Q172 178 172 112 L172 34 Z" fill="#0a0a0a" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+                <g transform="translate(100, 80)">
+                    <use href="#fi"/>
+                    <use href="#fi" transform="rotate(180)"/>
+                    <use href="#fi" transform="rotate(-90)"/>
+                    <use href="#fi" transform="rotate(90)"/>
+                    <circle cx="0" cy="0" r="3.5" fill="#ff8c00" opacity="0.5"/>
+                </g>
+                <text x="100" y="146" text-anchor="middle" fill="#ff8c00" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" letter-spacing="6">FROM FUTURE</text>
+                <text x="100" y="165" text-anchor="middle" fill="#ff8c00" font-family="'Segoe UI',sans-serif" font-size="6.5" font-weight="200" letter-spacing="4.5" opacity="0.7">solutions</text>
+            </svg>
+        </div>
+    </div>
+
     <div class="loader-overlay" id="loader">
         <div class="loader-ring">
             <div class="loader-ring-inner"></div>
@@ -22,6 +46,28 @@
         <a href="perfil.html" class="profile-btn">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         </a>
+    </div>
+
+    <div class="logo-box">
+        <svg viewBox="0 0 200 250" fill="none">
+            <defs>
+                <g id="f">
+                    <line x1="0" y1="0" x2="0" y2="35" stroke="#ff8c00" stroke-width="5.5" stroke-linecap="round"/>
+                    <line x1="0" y1="0" x2="27" y2="0" stroke="#ff8c00" stroke-width="5.5" stroke-linecap="round"/>
+                    <line x1="0" y1="16" x2="21" y2="16" stroke="#ff8c00" stroke-width="5.5" stroke-linecap="round"/>
+                </g>
+            </defs>
+            <path d="M100 16 L28 34 L28 112 Q28 178 100 226 Q172 178 172 112 L172 34 Z" fill="#0a0a0a" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+            <g transform="translate(100, 80)">
+                <use href="#f"/>
+                <use href="#f" transform="rotate(180)"/>
+                <use href="#f" transform="rotate(-90)"/>
+                <use href="#f" transform="rotate(90)"/>
+                <circle cx="0" cy="0" r="3.5" fill="#ff8c00" opacity="0.5"/>
+            </g>
+            <text x="100" y="146" text-anchor="middle" fill="#ff8c00" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" letter-spacing="6">FROM FUTURE</text>
+            <text x="100" y="165" text-anchor="middle" fill="#ff8c00" font-family="'Segoe UI',sans-serif" font-size="6.5" font-weight="200" letter-spacing="4.5" opacity="0.7">solutions</text>
+        </svg>
     </div>
 
     <div class="register-btn-box">
@@ -212,6 +258,15 @@
         }, 4000);
 
         update();
+    </script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const overlay = document.getElementById('introOverlay');
+                if (overlay) overlay.remove();
+            }, 2000);
+        });
     </script>
 
     <script>

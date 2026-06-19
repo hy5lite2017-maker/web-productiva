@@ -279,6 +279,24 @@ body::after {
     stroke-linejoin: round;
 }
 
+/* Logo */
+.logo-box {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    z-index: 200;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+}
+.logo-box:hover {
+    opacity: 1;
+}
+.logo-box svg {
+    width: 100px;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(255, 140, 0, 0.3));
+}
+
 /* Register / Login form */
 .register-box {
     position: absolute;
@@ -1031,6 +1049,14 @@ body::after {
         height: 15px;
     }
 
+    .logo-box {
+        top: 62px;
+        left: 10px;
+    }
+    .logo-box svg {
+        width: 80px;
+    }
+
     .register-btn-box {
         top: 6px;
         right: auto;
@@ -1206,6 +1232,9 @@ body::after {
     .profile-box { top: 4px; left: 6px; }
     .profile-btn { width: 26px; height: 26px; }
 
+    .logo-box { top: 52px; left: 6px; }
+    .logo-box svg { width: 68px; }
+
     .register-btn-box { top: 4px; right: auto; left: 38px; }
     .register-nav-btn { font-size: 10px; padding: 4px 10px; }
 
@@ -1215,6 +1244,38 @@ body::after {
     .service-page p { font-size: 13px; }
 
     .profile-page { margin: 80px auto 20px; }
+}
+
+/* ========== INTRO OVERLAY ========== */
+
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.intro-overlay .intro-logo svg {
+    width: 220px;
+    height: 275px;
+    display: block;
+    animation: introAnim 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.intro-overlay .intro-logo {
+    animation: introFade 1.6s ease forwards;
+}
+@keyframes introAnim {
+    0% { transform: scale(2.5); opacity: 0; }
+    20% { opacity: 1; }
+    70% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(0.3); opacity: 0; }
+}
+@keyframes introFade {
+    0%, 60% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 /* ========== LOADER ========== */
